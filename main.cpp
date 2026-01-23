@@ -17,7 +17,7 @@ int main()
     Vector2 knightPos{
         (float)windowWidth / 2.0f - 4.0f * (0.5 * (float)knight.width / 6.0),
         (float)windowHeight / 2.0f - 4.0f * (0.5 * (float)knight.height)};
-
+    // Setting the target FPS
     SetTargetFPS(60);
     while (!WindowShouldClose())
     {
