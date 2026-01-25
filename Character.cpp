@@ -16,6 +16,8 @@ void Character::setScreenPos(int winWidth, int winHeight)
 
 void Character::tick(float deltaTime)
 {
+    // Set this frame to last frame
+    worldPosLastFrame = worldPos;
     // Animation Variable
     Vector2 direction{};
     if (IsKeyDown(KEY_A))
@@ -29,6 +31,7 @@ void Character::tick(float deltaTime)
 
     if (Vector2Length(direction) != 0.0)
     {
+
         // Set worldPos += direction
         worldPos = Vector2Add(worldPos, Vector2Scale(Vector2Normalize(direction), speed));
 
@@ -58,4 +61,9 @@ void Character::tick(float deltaTime)
     Rectangle source{frame * width, 0.f, rightLeft * width, height};
     Rectangle dest{screenPos.x, screenPos.y, 4.0f * width, 4.0f * height};
     DrawTexturePro(texture, source, dest, Vector2{}, 0.f, WHITE);
+}
+
+void Character::undoMovement()
+{
+    worldPos = worldPosLastFrame;
 }
