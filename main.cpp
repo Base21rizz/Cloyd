@@ -19,7 +19,7 @@ int main()
     Character knight{windowWidth, windowHeight};
 
     // Prop rock
-    Prop rock(Vector2{0.f, 0.f}, LoadTexture("Nature_tileset/Rock.png"));
+    Prop rock{Vector2{0.f, 0.f}, LoadTexture("nature_tileset/Rock.png")};
 
     // Setting the target FPS
     SetTargetFPS(60);

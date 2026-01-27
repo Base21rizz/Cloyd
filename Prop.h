@@ -7,7 +7,7 @@ public:
     void Render(Vector2 knightPos);
 
 private:
-    Texture2D Texture{};
+    Texture2D texture{};
     Vector2 worldPos{};
     float scale{4.f};
-}
+};
