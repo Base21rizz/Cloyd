@@ -11,8 +11,7 @@ Character::Character(int winWidth, int winHeight)
 
 void Character::tick(float deltaTime)
 {
-    // Set this frame to last frame
-    worldPosLastFrame = worldPos;
+    BaseCharacter::tick(deltaTime);
     // Animation Variable
     Vector2 direction{};
     if (IsKeyDown(KEY_A))
@@ -41,19 +40,4 @@ void Character::tick(float deltaTime)
         // Animation selection
         texture = idle;
     }
-
-    // Update animation frame
-    runningTime += deltaTime;
-    if (runningTime >= updateTime)
-    {
-        frame++;
-        runningTime = 0.f;
-        if (frame > maxFrames)
-            frame = 0;
-    }
-
-    // Drawing character to the screen
-    Rectangle source{frame * width, 0.f, rightLeft * width, height};
-    Rectangle dest{screenPos.x, screenPos.y, scale * width, scale * height};
-    DrawTexturePro(texture, source, dest, Vector2{}, 0.f, WHITE);
 }
