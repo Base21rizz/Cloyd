@@ -1,3 +1,6 @@
+#ifndef CHARACTER_H
+#define CHARACTER_H
+
 #pragma once
 #include "raylib.h"
 #include "BaseCharacter.h"
@@ -12,3 +15,5 @@ public:
 
 private:
 };
+
+#endif
