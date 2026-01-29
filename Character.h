@@ -12,9 +12,11 @@ public:
         int winWidth,
         int winHeight);
     virtual void tick(float deltaTime) override;
-    Vector2 getScreenPos() { return screenPos; }
+    virtual Vector2 getScreenPos() override;
 
 private:
+    int windowWidth{};
+    int windowHeight{};
 };
 
 #endif
