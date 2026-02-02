@@ -35,6 +35,9 @@ void Character::tick(float deltaTime)
 
     if (rightLeft > 0.f)
     {
+        if (!getAlive())
+            return;
+
         origin = {0.f, weapon.height * scale};
         offset = {35.f, 55.f};
         weaponCollisionRec = {
@@ -43,6 +46,7 @@ void Character::tick(float deltaTime)
             weapon.width * scale,
             weapon.height * scale};
         rotation = 35.f;
+        rotation = IsMouseButtonDown(MOUSE_LEFT_BUTTON) ? 35.f : 0.f;
     }
     else
     {
@@ -54,6 +58,7 @@ void Character::tick(float deltaTime)
             weapon.width * scale,
             weapon.height * scale};
         rotation = -35.f;
+        rotation = IsMouseButtonDown(MOUSE_LEFT_BUTTON) ? -35.f : 0.f;
     }
 
     // Draw the sword
