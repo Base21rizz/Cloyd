@@ -73,3 +73,12 @@ void Character::tick(float deltaTime)
         weaponCollisionRec.height,
         RED);
 }
+
+void Character::takeDamage(float damage)
+{
+    health -= damage;
+    if (health <= 0)
+    {
+        setAlive(false);
+    }
+}
